@@ -30,7 +30,8 @@ Good luck
 * You shouldn't need any extra libraries or gems
 * The cleaner your code the better!
 * Googling is fine as usual
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+* Finally submit a pull request before end of the Workshop
+* You can continue at home
 
 ### Tips
 
