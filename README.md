@@ -1,4 +1,4 @@
-## Weekend Challenge
+## Ruby-Refresher welcome !
 
  Start by :
 
