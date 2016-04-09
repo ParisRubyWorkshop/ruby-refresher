@@ -46,7 +46,7 @@ end
 # sort an array of words by their last letter, e.g.
 # ['sky', 'puma', 'maker'] becomes ['puma', 'maker', 'sky']
 def array_sort_by_last_letter_of_word(array)
-  array.sort{ |x, y| x[-1] <=> y[-1] }
+  array.sort { |x, y| x[-1] <=> y[-1] }
 end
 
 # cut strings in half, and return the first half, e.g.
@@ -75,17 +75,17 @@ end
 # e.g. 'bob'. So in the array ['bob', 'radar', 'eat'], there
 # are 2 palindromes (bob and radar), so the method should return 2
 def number_of_elements_that_are_palindromes(array)
-  array.count{ |ele| ele == ele.reverse }
+  array.count { |ele| ele == ele.reverse }
 end
 
 # return the shortest word in an array
 def shortest_word_in_array(array)
-  array.sort{ |x, y| x.size <=> y.size }[0]
+  array.sort { |x, y| x.size <=> y.size }[0]
 end
 
 # return the shortest word in an array
 def longest_word_in_array(array)
-  array.sort{ |x, y| y.size <=> x.size }[0]
+  array.sort { |x, y| y.size <=> x.size }[0]
 end
 
 # add up all the numbers in an array, so [1, 3, 5, 6]
@@ -116,7 +116,7 @@ end
 # [1, 3, 5, 4, 1, 2, 6, 2, 1, 3, 7]
 # becomes [1, 3, 5, 4, 1, 2]
 def get_elements_until_greater_than_five(array)
-  array.take_while{ |ele| ele <= 5 }
+  array.take_while { |ele| ele <= 5 }
 end
 
 # turn an array (with an even number of elements) into a hash, by
@@ -185,7 +185,7 @@ end
 # 'The Lion the Witch and the Wardrobe'
 def titleize_a_string(string)
   string.capitalize.split(' ').each do |ele|
-    ele.capitalize! unless ['a', 'and', 'the'].index(ele)
+    ele.capitalize! unless %w(a and the).index(ele)
   end.join(' ')
 end
 
@@ -284,14 +284,23 @@ end
 def ninety_nine_bottles_of_beer
   (0..99).to_a.reverse.each do |i|
     if i == 0
-      puts "No more bottles of beer on the wall, no more bottles of beer.
-      Go to the store and buy some more, 99 bottles of beer on the wall."
+      string = "No more bottles of beer on the wall, "\
+       "no more bottles of beer.\n"\
+      "Go to the store and buy some more, "\
+      "99 bottles of beer on the wall.\n\n"
+      puts string
     elsif i == 1
-      puts "1 bottle of beer on the wall, 1 bottle of beer.
-      Take one down and pass it around, no more bottles of beer on the wall.\n\n"
+      string = "1 bottle of beer on the wall, "\
+       "1 bottle of beer.\n"\
+      "Take one down and pass it around, "\
+      "no more bottles of beer on the wall.\n\n"
+      puts string
     else
-      puts "#{i} bottles of beer on the wall, #{i} bottles of beer.
-      Take one down and pass it around, #{i - 1} bottles of beer on the wall.\n\n"
+      string = "#{i} bottles of beer on the wall, "\
+       "#{i} bottles of beer.\n"\
+      "Take one down and pass it around, "\
+      "#{i - 1} bottles of beer on the wall.\n\n"
+      puts string
     end
   end
 end
