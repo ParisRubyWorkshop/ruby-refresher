@@ -1,27 +1,27 @@
 # keep only the elements that start with an a
 def select_elements_starting_with_a(array)
-  array.select{ |word| word[0] == 'a' }
+  array.select { |word| word[0] == 'a' }
 end
 
 # keep only the elements that start with a vowel
 def select_elements_starting_with_vowel(array)
-  array.select{ |word| word.match(/^[aeiouy]/) }
+  array.select { |word| word.match(/^[aeiouy]/) }
 end
 
 # remove instances of nil (but NOT false) from an array
 def remove_nils_from_array(array)
-  array.select{ |ele| ele != nil }
+  array.select { |ele| ele != nil }
 end
 
 # remove instances of nil AND false from an array
 def remove_nils_and_false_from_array(array)
-  array.select{ |ele| ele != nil && ele != false }
+  array.select { |ele| ele != nil && ele != false }
 end
 
 # don't reverse the array, but reverse every word inside it. e.g.
 # ['dog', 'monkey'] becomes ['god', 'yeknom']
 def reverse_every_element_in_array(array)
-  array.map{ |ele| ele.reverse }
+  array.map(&:reverse)
 end
 
 # given an array of student names, like ['Bob', 'Dave', 'Clive']
@@ -53,7 +53,7 @@ end
 # 'banana' becomes 'ban'. If the string is an odd number of letters
 # round up - so 'apple' becomes 'app'
 def get_first_half_of_string(string)
-  string[0..-(string.length/2 + 1)]
+  string[0..-(string.length / 2 + 1)]
 end
 
 # turn a positive integer into a negative integer. A negative integer
@@ -67,7 +67,7 @@ end
 # even numbers come first
 # so [1, 2, 3, 4, 5, 6] becomes [[2, 4, 6], [1, 3, 5]]
 def separate_array_into_even_and_odd_numbers(array)
-  [array.select{ |ele| ele.even? }, array.select{ |ele| ele.odd? }]
+  [array.select(&:even?), array.select(&:odd?)]
 end
 
 # count the numbers of elements in an element which are palindromes
@@ -91,7 +91,7 @@ end
 # add up all the numbers in an array, so [1, 3, 5, 6]
 # returns 15
 def total_of_array(array)
-  array.inject{ |sum, ele| sum += ele }
+  array.inject { |sum, ele| sum += ele }
 end
 
 # turn an array into itself repeated twice. So [1, 2, 3]
@@ -108,7 +108,7 @@ end
 # get the average from an array, rounded to the nearest integer
 # so [10, 15, 25] should return 17
 def average_of_array(array)
-  (array.inject{ |sum, ele| sum += ele }.to_f/array.size).round
+  (array.inject { |sum, ele| sum += ele }.to_f / array.size).round
 end
 
 # get all the elements in an array, up until the first element
@@ -145,7 +145,7 @@ end
 # add all the keys and all the values together, e.g.
 # {1 => 1, 2 => 2} becomes 6
 def add_together_keys_and_values(hash)
-  hash.flatten.inject{ |sum, ele| sum += ele }
+  hash.flatten.inject { |sum, ele| sum += ele }
 end
 
 # take out all the capital letters from a string
@@ -267,9 +267,9 @@ end
 def fizzbuzz_without_modulo
   for i in (0..99)
     x = ''
-    x += 'Fizz' if i/3.to_f == (i/3)
-    x += 'Buzz' if i/5.to_f == (i/5)
-    puts(x.empty? ? i : x);
+    x += 'Fizz' if i / 3.to_f == (i / 3)
+    x += 'Buzz' if i / 5.to_f == (i / 5)
+    puts(x.empty? ? i : x)
   end
 end
 
