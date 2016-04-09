@@ -10,12 +10,12 @@ end
 
 # remove instances of nil (but NOT false) from an array
 def remove_nils_from_array(array)
-  array.select { |ele| ele != nil }
+  array.select { |ele| !ele.nil? }
 end
 
 # remove instances of nil AND false from an array
 def remove_nils_and_false_from_array(array)
-  array.select { |ele| ele != nil && ele != false }
+  array.select { |ele| !ele.nil? && ele != false }
 end
 
 # don't reverse the array, but reverse every word inside it. e.g.
@@ -240,11 +240,11 @@ end
 def your_birthday_is_on_a_friday_in_the_year(birthday)
   t = birthday
   y = t.year
-  while !t.friday?
+  until t.friday?
     y += 1
     t = Time.new(y, t.month, t.day)
   end
-  return t.year
+  t.year
 end
 
 # in a file, total the number of times words of different lengths
@@ -258,14 +258,14 @@ def count_words_of_each_length_in_a_file(file_path)
     hash_count[word.length] ||= 0
     hash_count[word.length] += 1
   end
-  return hash_count
+  hash_count
 end
 
 # implement fizzbuzz without modulo, i.e. the % method
 # go from 1 to 100
 # (there's no RSpec test for this one)
 def fizzbuzz_without_modulo
-  for i in (0..99)
+  (0..99).each do |i|
     x = ''
     x += 'Fizz' if i / 3.to_f == (i / 3)
     x += 'Buzz' if i / 5.to_f == (i / 5)
@@ -280,13 +280,13 @@ end
 # at the end.
 # (there's no RSpec test for this one)
 def ninety_nine_bottles_of_beer
-  for i in (0..99).to_a.reverse
+  (0..99).to_a.reverse.each do |i|
     if i == 0
       puts "No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall."
     elsif i == 1
       puts "1 bottle of beer on the wall, 1 bottle of beer.\nTake one down and pass it around, no more bottles of beer on the wall.\n\n"
     else
-      puts "#{i} bottles of beer on the wall, #{i} bottles of beer.\nTake one down and pass it around, #{i-1} bottles of beer on the wall.\n\n"
+      puts "#{i} bottles of beer on the wall, #{i} bottles of beer.\nTake one down and pass it around, #{i - 1} bottles of beer on the wall.\n\n"
     end
   end
 end
