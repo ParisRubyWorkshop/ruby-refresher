@@ -184,7 +184,9 @@ end
 # 'the lion the witch and the wardrobe' becomes
 # 'The Lion the Witch and the Wardrobe'
 def titleize_a_string(string)
-  string.capitalize.split(' ').each{ |ele| ele.capitalize! unless ['a', 'and', 'the'].index(ele) }.join(' ')
+  string.capitalize.split(' ').each do |ele|
+    ele.capitalize! unless ['a', 'and', 'the'].index(ele)
+  end.join(' ')
 end
 
 # return true if a string contains any special characters
@@ -282,11 +284,14 @@ end
 def ninety_nine_bottles_of_beer
   (0..99).to_a.reverse.each do |i|
     if i == 0
-      puts "No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall."
+      puts "No more bottles of beer on the wall, no more bottles of beer.
+      Go to the store and buy some more, 99 bottles of beer on the wall."
     elsif i == 1
-      puts "1 bottle of beer on the wall, 1 bottle of beer.\nTake one down and pass it around, no more bottles of beer on the wall.\n\n"
+      puts "1 bottle of beer on the wall, 1 bottle of beer.
+      Take one down and pass it around, no more bottles of beer on the wall.\n\n"
     else
-      puts "#{i} bottles of beer on the wall, #{i} bottles of beer.\nTake one down and pass it around, #{i - 1} bottles of beer on the wall.\n\n"
+      puts "#{i} bottles of beer on the wall, #{i} bottles of beer.
+      Take one down and pass it around, #{i - 1} bottles of beer on the wall.\n\n"
     end
   end
 end
