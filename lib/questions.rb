@@ -5,8 +5,7 @@ end
 
 # keep only the elements that start with a vowel
 def select_elements_starting_with_vowel(array)
-  vowels = ['a','e','i','o','u','y']
-  array.select{ |word| vowels.index(word[0]) != nil }
+  array.select{ |word| word.match(/^[aeiouy]/) }
 end
 
 # remove instances of nil (but NOT false) from an array
@@ -109,8 +108,7 @@ end
 # get the average from an array, rounded to the nearest integer
 # so [10, 15, 25] should return 17
 def average_of_array(array)
-  avg = array.inject{ |sum, ele| sum += ele }/(array.length).to_f
-  avg.round
+  (array.inject{ |sum, ele| sum += ele }.to_f/array.size).round
 end
 
 # get all the elements in an array, up until the first element
@@ -186,8 +184,7 @@ end
 # 'the lion the witch and the wardrobe' becomes
 # 'The Lion the Witch and the Wardrobe'
 def titleize_a_string(string)
-  except = ['a', 'and', 'the']
-  string.capitalize.split(' ').each{ |ele| ele.capitalize! if except.index(ele) == nil }.join(' ')
+  string.capitalize.split(' ').each{ |ele| ele.capitalize! unless ['a', 'and', 'the'].index(ele) }.join(' ')
 end
 
 # return true if a string contains any special characters
@@ -256,9 +253,8 @@ end
 # and 1 that is 4 letters long. Return it as a hash in the format
 # word_length => count, e.g. {2 => 1, 3 => 5, 4 => 1}
 def count_words_of_each_length_in_a_file(file_path)
-  all_words = File.read(file_path).gsub!(/[^0-9A-Za-z]/, ' ').split(' ')
   hash_count = Hash.new
-  all_words.each do |word|
+  File.read(file_path).gsub!(/[^0-9A-Za-z]/, ' ').split(' ').each do |word|
     hash_count[word.length] ||= 0
     hash_count[word.length] += 1
   end
@@ -269,12 +265,12 @@ end
 # go from 1 to 100
 # (there's no RSpec test for this one)
 def fizzbuzz_without_modulo
-  (1..100).each{|i|
-  x = ''
-  x += 'Fizz' if i/3.to_f == (i/3)
-  x += 'Buzz' if i/5.to_f == (i/5)
-  puts(x.empty? ? i : x);
-}
+  for i in (0..99)
+    x = ''
+    x += 'Fizz' if i/3.to_f == (i/3)
+    x += 'Buzz' if i/5.to_f == (i/5)
+    puts(x.empty? ? i : x);
+  end
 end
 
 # print the lyrics of the song 99 bottles of beer on the wall
