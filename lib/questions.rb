@@ -256,13 +256,25 @@ end
 # and 1 that is 4 letters long. Return it as a hash in the format
 # word_length => count, e.g. {2 => 1, 3 => 5, 4 => 1}
 def count_words_of_each_length_in_a_file(file_path)
-  puts File.read(file_path).split(' ')
+  all_words = File.read(file_path).gsub!(/[^0-9A-Za-z]/, ' ').split(' ')
+  hash_count = Hash.new
+  all_words.each do |word|
+    hash_count[word.length] ||= 0
+    hash_count[word.length] += 1
+  end
+  return hash_count
 end
 
 # implement fizzbuzz without modulo, i.e. the % method
 # go from 1 to 100
 # (there's no RSpec test for this one)
 def fizzbuzz_without_modulo
+  (1..100).each{|i|
+  x = ''
+  x += 'Fizz' if i/3.to_f == (i/3)
+  x += 'Buzz' if i/5.to_f == (i/5)
+  puts(x.empty? ? i : x);
+}
 end
 
 # print the lyrics of the song 99 bottles of beer on the wall
@@ -272,4 +284,13 @@ end
 # at the end.
 # (there's no RSpec test for this one)
 def ninety_nine_bottles_of_beer
+  for i in (0..99).to_a.reverse
+    if i == 0
+      puts "No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall."
+    elsif i == 1
+      puts "1 bottle of beer on the wall, 1 bottle of beer.\nTake one down and pass it around, no more bottles of beer on the wall.\n\n"
+    else
+      puts "#{i} bottles of beer on the wall, #{i} bottles of beer.\nTake one down and pass it around, #{i-1} bottles of beer on the wall.\n\n"
+    end
+  end
 end
