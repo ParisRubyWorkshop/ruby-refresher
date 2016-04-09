@@ -231,7 +231,9 @@ end
 # the list of bank holidays is here:
 # https://www.gov.uk/bank-holidays
 def is_a_2014_bank_holiday?(date)
-  bank_holidays_2014 = [Time.new(2014, 1, 1), Time.new(2014, 4, 18), Time.new(2014, 1, 21), Time.new(2014, 5, 5), Time.new(2014, 8, 25), Time.new(2014, 12, 25), Time.new(2014, 12, 26)]
+  bank_holidays_2014 = [Time.new(2014, 1, 1), Time.new(2014, 4, 18),
+    Time.new(2014, 1, 21), Time.new(2014, 5, 5), Time.new(2014, 8, 25),
+    Time.new(2014, 12, 25), Time.new(2014, 12, 26)]
   bank_holidays_2014.include?(date)
 end
 
@@ -288,19 +290,17 @@ def ninety_nine_bottles_of_beer
        "no more bottles of beer.\n"\
       "Go to the store and buy some more, "\
       "99 bottles of beer on the wall.\n\n"
-      puts string
     elsif i == 1
       string = "1 bottle of beer on the wall, "\
        "1 bottle of beer.\n"\
       "Take one down and pass it around, "\
       "no more bottles of beer on the wall.\n\n"
-      puts string
     else
       string = "#{i} bottles of beer on the wall, "\
        "#{i} bottles of beer.\n"\
       "Take one down and pass it around, "\
       "#{i - 1} bottles of beer on the wall.\n\n"
-      puts string
     end
+    puts string
   end
 end
