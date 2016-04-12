@@ -35,7 +35,7 @@ Good luck
 
 ### Tips
 
-* Use the ruby docs http://www.ruby-doc.org/core-2.0.0/String.html
+* Use the ruby docs http://ruby-doc.org/core-2.3.0/String.html
 * Try and break down the problems into smaller chunks. For e.g. if you google "How to select elements in an array that start with a", you won't have much luck. Try and find out a) how to select certain elements in an array, b) how to test if a string starts with an 'a'
 * Don't forget Enumerable (advanced array methods)
 * Read the specs and the comments - if you're still confused, just ask.
